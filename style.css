@@ -1,0 +1,93 @@
+/* style.css */
+/* You can add any custom base styles here if needed */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom form input focus style */
+.custom-input:focus {
+    outline: none;
+    border-color: #E53E3E; /* Use Tailwind primary color */
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.3); /* Optional focus ring */
+}
+
+/* Custom select dropdown arrow */
+.custom-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23666666'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+}
+.custom-select:focus {
+    outline: none;
+    border-color: #E53E3E; /* Use Tailwind primary color */
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.3); /* Optional focus ring */
+}
+
+
+/* Custom checkbox styles */
+.custom-checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Make the whole label clickable */
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #d1d5db; /* Tailwind gray-300 */
+    border-radius: 4px; /* Tailwind rounded-sm */
+    position: relative;
+    margin-right: 0.75rem; /* Tailwind mr-3 */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Style the checkmark when checkbox is checked */
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: #E53E3E; /* Tailwind primary color */
+    border-color: #E53E3E;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when checkbox is checked */
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Add focus style for accessibility */
+.custom-checkbox input:focus ~ .checkmark {
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.3); /* Optional focus ring */
+}
+
+/* Add active class for navigation */
+.nav-active {
+    color: #E53E3E !important; /* Use Tailwind primary color, override potential specificity */
+    font-weight: 600; /* Example: make active link bolder */
+}
+
+/* Ensure Remixicon base styles are loaded if needed, though CDN should handle it */
+:where([class^="ri-"])::before { content: "\f3c2"; } /* Placeholder, actual icons defined by CDN */
